@@ -5,11 +5,12 @@ using System.Linq;
 
 namespace HFC_Comic_LINQ
 {
-    static class ComicAnalyser
+    public static class ComicAnalyser
     {
-        static private PriceRange CalculatePriceRange(Comic comic)
+        static private PriceRange CalculatePriceRange(Comic comic,
+            IReadOnlyDictionary<int, decimal>prices)
         {
-            if (Comic.Prices[comic.Issue] > 100)
+            if (prices[comic.Issue] > 100)
                 return PriceRange.Expensive;
             else
                 return PriceRange.Cheap;
@@ -22,7 +23,7 @@ namespace HFC_Comic_LINQ
 
                   from comic in comics
                   orderby prices[comic.Issue]
-                  group comic by CalculatePriceRange(comic) into priceGroup
+                  group comic by CalculatePriceRange(comic, prices) into priceGroup
                   select priceGroup;
                 
 

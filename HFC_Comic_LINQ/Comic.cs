@@ -4,7 +4,7 @@ using System.Text;
 using System.Linq;
 namespace HFC_Comic_LINQ
 {
-    class Comic
+   public class Comic
     {
         public string Name { get; set; }
         public int Issue { get; set; }
@@ -47,20 +47,20 @@ namespace HFC_Comic_LINQ
         };
     }
 
-    class Review
+  public  class Review
     {
         public int Issue { get; set; }
         public Critics Critic { get; set; }
         public double Score { get; set; }
     }
 
-    enum Critics 
+  public  enum Critics 
     {
         MuddyCritic,
         RottenTornadoes,
     }
 
-    enum PriceRange
+ public   enum PriceRange
     {
         Cheap,
         Expensive,
